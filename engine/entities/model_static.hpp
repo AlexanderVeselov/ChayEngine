@@ -1,4 +1,1 @@
-#ifndef MODEL_STATIC_HPP
-#define MODEL_STATIC_HPP
-
-#endif // MODEL_STATIC_HPP
+#pragma once
