@@ -1,8 +1,9 @@
-#ifndef APP_SETTINGS_HPP_
-#define APP_SETTINGS_HPP_
+#pragma once
 
 #include <string>
 
+namespace engine
+{
 struct AppSettings
 {
     std::uint32_t width;
@@ -11,4 +12,4 @@ struct AppSettings
 
 };
 
-#endif // APP_SETTINGS_HPP_
+} // namespace engine

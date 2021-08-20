@@ -1,6 +1,6 @@
 set(SOURCES
-    application.cpp
-    application.hpp
+#    application.cpp
+#    application.hpp
     main.cpp
 )
 

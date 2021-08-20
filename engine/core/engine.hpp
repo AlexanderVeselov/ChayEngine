@@ -1,8 +1,9 @@
-#ifndef ENGINE_HPP_
-#define ENGINE_HPP_
+#pragma once
 
 #include <memory>
 
+namespace engine
+{
 class Render;
 class Scene;
 
@@ -20,4 +21,4 @@ private:
 
 };
 
-#endif // ENGINE_HPP_
+} // namespace engine

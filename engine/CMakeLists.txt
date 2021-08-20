@@ -1,50 +1,55 @@
-set(SOURCES
-    app_settings.hpp
-#    asset.hpp
-#    asset_manager.cpp
-#    asset_manager.hpp
-    camera.cpp
-    camera.hpp
-#    component.cpp
-#    component.hpp
-#    component_manager.cpp
-#    component_manager.hpp
-    engine.cpp
-    engine.hpp
-#    entity.cpp
-#    entity.hpp
-#    entity_manager.cpp
-#    entity_manager.hpp
-    forward_renderer.cpp
-    forward_renderer.hpp
-    mathlib.hpp
-    matrix.cpp
-    mesh.cpp
-    mesh.hpp
-#    mesh_system.cpp
-#    mesh_system.hpp
-    model.cpp
-    model.hpp
-#    obj_loader.cpp
-#    obj_loader.hpp
-    render.hpp
-    renderable.hpp
-#    resource_manager.cpp
-#    resource_manager.hpp
-    scene.cpp
-    scene.hpp
+set(CORE_SOURCES
+    core/app_settings.hpp
+    core/application.cpp
+    core/application.hpp
+#    core/engine.cpp
+#    core/engine.hpp
+#    core/scene.cpp
+#    core/scene.hpp
+    core/window.cpp
+    core/window.hpp
 )
 
-set(SHADER_SOURCES
+source_group("core" FILES ${CORE_SOURCES})
+
+set(ENTITIES_SOURCES
+    entities/camera.cpp
+    entities/camera.hpp
+)
+
+source_group("entities" FILES ${ENTITIES_SOURCES})
+
+set(LOADERS_SOURCES
+    loaders/obj_loader.cpp
+    loaders/obj_loader.hpp
+)
+
+source_group("loaders" FILES ${LOADERS_SOURCES})
+
+set(RENDERERS_SOURCES
+#    renderers/forward_renderer.cpp
+#    renderers/forward_renderer.hpp
+)
+
+source_group("renderers" FILES ${RENDERERS_SOURCES})
+
+set(SHADERS_SOURCES
     shaders/common.h
     shaders/shader.frag
     shaders/shader.vert
 )
 
-source_group("shaders" FILES ${SHADER_SOURCES})
+source_group("shaders" FILES ${SHADERS_SOURCES})
 
-add_library(Engine STATIC ${SOURCES} ${SHADER_SOURCES})
+add_library(Engine STATIC
+    ${CORE_SOURCES}
+    ${ENTITIES_SOURCES}
+    ${LOADERS_SOURCES}
+    ${RENDERERS_SOURCES}
+    ${SHADERS_SOURCES}
+)
+
 target_include_directories(Engine PUBLIC .)
 target_include_directories(Engine PRIVATE ${ChayEngine_SOURCE_DIR}/dependencies/tinyobjloader)
-target_link_libraries(Engine GpuApi)
+target_link_libraries(Engine PRIVATE GpuApi glfw3::glfw3)
 target_compile_features(Engine PUBLIC cxx_std_17)

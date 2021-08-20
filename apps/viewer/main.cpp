@@ -1,16 +1,21 @@
-#include "application.hpp"
+#include "core/application.hpp"
 #include <iostream>
+
+class ViewerApp : public engine::Application
+{
+public:
+    void OnInit() override
+    {
+        CreateWindow(1280, 720, "ViewerApp");
+    }
+};
 
 int main(int argc, char** argv)
 {
-    AppSettings settings;
-    settings.width = 1280;
-    settings.height = 720;
-    settings.app_name = "VulkanLabs";
+    ViewerApp application;
 
     try
     {
-        vklabs::Application application(settings);
         application.Run();
 
     }
