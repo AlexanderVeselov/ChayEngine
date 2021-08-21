@@ -1,6 +1,7 @@
 #pragma once
 
 #include "window.hpp"
+#include "engine.hpp"
 #include <memory>
 
 namespace engine
@@ -17,9 +18,11 @@ public:
 
     void CreateWindow(std::uint32_t width, std::uint32_t height, char const* title);
     void Run();
+    bool GetKey();
 
 private:
     std::unique_ptr<Window> window_;
+    Engine engine_;
 };
 
 } // namespace engine

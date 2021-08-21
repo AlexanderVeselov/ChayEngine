@@ -1,9 +1,10 @@
 #include "engine.hpp"
-#include "forward_render.hpp"
 #include "scene.hpp"
 #include <chrono>
 #include <iostream>
 
+namespace engine
+{
 Engine::Engine()
 {
     //render_ = std::make_unique<ForwardRender>();
@@ -17,3 +18,5 @@ void Engine::RunFrame()
     //scene_->Update(dt);
     //render_->RenderFrame();
 }
+
+} // namespace engine

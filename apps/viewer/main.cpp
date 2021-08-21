@@ -8,6 +8,11 @@ public:
     {
         CreateWindow(1280, 720, "ViewerApp");
     }
+
+    void OnUpdate() override
+    {
+        //std::cout << "Test debug" << std::endl;
+    }
 };
 
 int main(int argc, char** argv)

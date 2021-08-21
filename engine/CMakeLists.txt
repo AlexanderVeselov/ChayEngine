@@ -2,10 +2,11 @@ set(CORE_SOURCES
     core/app_settings.hpp
     core/application.cpp
     core/application.hpp
-#    core/engine.cpp
-#    core/engine.hpp
+    core/engine.cpp
+    core/engine.hpp
 #    core/scene.cpp
 #    core/scene.hpp
+    core/renderer.hpp
     core/window.cpp
     core/window.hpp
 )
@@ -27,8 +28,8 @@ set(LOADERS_SOURCES
 source_group("loaders" FILES ${LOADERS_SOURCES})
 
 set(RENDERERS_SOURCES
-#    renderers/forward_renderer.cpp
-#    renderers/forward_renderer.hpp
+    renderers/forward_renderer.cpp
+    renderers/forward_renderer.hpp
 )
 
 source_group("renderers" FILES ${RENDERERS_SOURCES})

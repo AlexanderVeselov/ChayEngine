@@ -28,6 +28,11 @@ void Application::CreateWindow(std::uint32_t width, std::uint32_t height, char c
     window_ = std::make_unique<Window>(1280, 720, "Test");
 }
 
+bool Application::GetKey()
+{
+    return true;
+}
+
 void Application::Run()
 {
     OnInit();

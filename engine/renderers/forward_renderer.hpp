@@ -1,18 +1,19 @@
-#ifndef FORWARD_RENDER_HPP_
-#define FORWARD_RENDER_HPP_
+#pragma once
 
-#include "render.hpp"
+#include "core/renderer.hpp"
 
 #include <memory>
 
 #include "gpu_types.hpp"
 
+namespace engine
+{
 class ResourceManager;
 
-class ForwardRender : public Render
+class ForwardRenderer : public Renderer
 {
 public:
-    ForwardRender(gpu::Device& device, ResourceManager& resource_manager);
+    ForwardRenderer(gpu::Device& device, ResourceManager& resource_manager);
     void RenderFrame() override;
 
 private:
@@ -21,4 +22,4 @@ private:
 
 };
 
-#endif // FORWARD_RENDER_HPP_
+} // namespace engine
