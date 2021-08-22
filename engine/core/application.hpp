@@ -4,7 +4,7 @@
 #include "gpu_types.hpp"
 #include "gpu_api.hpp"
 #include "gpu_device.hpp"
-#include "renderers/forward_renderer.hpp"
+#include "renderer.hpp"
 #include <memory>
 
 namespace engine
@@ -20,6 +20,12 @@ public:
     virtual void OnExit();
 
     void CreateWindow(std::uint32_t width, std::uint32_t height, char const* title);
+    template <class T> void CreateRenderer()
+    {
+        renderer_ = std::make_unique<T>(*render_device_, window_->GetNativeHandle(),
+            window_->GetWidth(), window_->GetHeight());
+    }
+
     void Run();
     bool GetKey() const;
 

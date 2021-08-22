@@ -1,5 +1,6 @@
 #include "application.hpp"
 #include "window.hpp"
+#include "renderers/forward_renderer.hpp"
 
 namespace engine
 {

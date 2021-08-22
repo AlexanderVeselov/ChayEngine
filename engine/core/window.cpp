@@ -128,6 +128,8 @@ std::unordered_map<int, KeyCode> kGlfwKeyToKeyCode =
 
 Window::Window(std::uint32_t width, std::uint32_t height, char const* title)
     : window_(nullptr, glfwDestroyWindow)
+    , width_(width)
+    , height_(height)
 {
     if (!glfwInit())
     {

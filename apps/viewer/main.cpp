@@ -1,4 +1,5 @@
 #include "core/application.hpp"
+#include "renderers/forward_renderer.hpp"
 #include <iostream>
 
 class ViewerApp : public engine::Application
@@ -7,6 +8,7 @@ public:
     void OnInit() override
     {
         CreateWindow(1280, 720, "ViewerApp");
+        CreateRenderer<engine::ForwardRenderer>();
     }
 
     void OnUpdate() override

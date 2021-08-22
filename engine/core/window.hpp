@@ -124,6 +124,8 @@ public:
 
     // Returns HWND in the case of WIN32 platform
     void* GetNativeHandle() const;
+    std::uint32_t GetWidth() const { return width_; }
+    std::uint32_t GetHeight() const { return height_; }
 
     void PollEvents();
     bool ShouldClose() const;
@@ -131,6 +133,8 @@ public:
 
 private:
     std::unique_ptr<GLFWwindow, void(*)(GLFWwindow*)> window_;
+    std::uint32_t width_ = ~0u;
+    std::uint32_t height_ = ~0u;
 };
 
 } // namespace engine
