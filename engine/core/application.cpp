@@ -14,6 +14,7 @@ void Application::OnUpdate()
 
 void Application::OnRender()
 {
+    renderer_->RenderFrame();
 }
 
 void Application::OnGUI()

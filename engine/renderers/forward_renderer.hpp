@@ -3,6 +3,8 @@
 #include "core/renderer.hpp"
 #include "gpu_types.hpp"
 #include "gpu_swapchain.hpp"
+#include "gpu_command_buffer.hpp"
+#include "gpu_sync.hpp"
 
 #include <memory>
 
@@ -22,6 +24,9 @@ private:
     gpu::Device& device_;
     //ResourceManager& resource_manager_;
     gpu::SwapchainPtr swapchain_;
+    std::vector<gpu::CommandBufferPtr> command_buffers_;
+    std::vector<gpu::FencePtr> fences_;
+    std::uint32_t frame_index_ = 0;
 
 };
 
