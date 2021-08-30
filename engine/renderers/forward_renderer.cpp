@@ -29,7 +29,7 @@ ForwardRenderer::ForwardRenderer(gpu::Device& device,// ResourceManager& resourc
     }
 }
 
-void ForwardRenderer::RenderFrame()
+void ForwardRenderer::RenderView()
 {
     gpu::Queue& graphics_queue = device_.GetQueue(gpu::QueueType::kGraphics);
 

@@ -5,7 +5,7 @@ namespace engine
 class Renderer
 {
 public:
-    virtual void RenderFrame() = 0;
+    virtual void RenderView() = 0;
 
 };
 } // namespace engine

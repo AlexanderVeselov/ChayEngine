@@ -103,27 +103,27 @@ inline float distance(const float3& a, const float3& b)
     return (b - a).length();
 }
 
-struct Matrix
+struct float4x4
 {
-    static Matrix LookAtLH(const float3& eye, const float3& target, const float3& up = float3(0.0f, 0.0f, 1.0f));
-    static Matrix LookAtRH(const float3& eye, const float3& target, const float3& up = float3(0.0f, 0.0f, 1.0f));
-    static Matrix PerspectiveFovLH(float fov, float aspect, float nearZ, float farZ);
-    static Matrix PerspectiveFovRH(float fov, float aspect, float nearZ, float farZ);
-    static Matrix OrthoLH(float width, float height, float nearZ, float farZ);
-    static Matrix OrthoRH(float width, float height, float nearZ, float farZ);
-    static Matrix Zero();
-    static Matrix Identity();
-    static Matrix Translation(const float3& translation);
-    static Matrix Translation(float x, float y, float z);
-    static Matrix RotationAxis(const float3& axis, float angle);
-    static Matrix RotationAxisAroundPoint(const float3& axis, const float3& point, float angle);
-    static Matrix Scaling(float scalex, float scaley, float scalez);
+    static float4x4 LookAtLH(const float3& eye, const float3& target, const float3& up = float3(0.0f, 0.0f, 1.0f));
+    static float4x4 LookAtRH(const float3& eye, const float3& target, const float3& up = float3(0.0f, 0.0f, 1.0f));
+    static float4x4 PerspectiveFovLH(float fov, float aspect, float nearZ, float farZ);
+    static float4x4 PerspectiveFovRH(float fov, float aspect, float nearZ, float farZ);
+    static float4x4 OrthoLH(float width, float height, float nearZ, float farZ);
+    static float4x4 OrthoRH(float width, float height, float nearZ, float farZ);
+    static float4x4 Zero();
+    static float4x4 Identity();
+    static float4x4 Translation(const float3& translation);
+    static float4x4 Translation(float x, float y, float z);
+    static float4x4 RotationAxis(const float3& axis, float angle);
+    static float4x4 RotationAxisAroundPoint(const float3& axis, const float3& point, float angle);
+    static float4x4 Scaling(float scalex, float scaley, float scalez);
 
     // Constructors
-    Matrix() { memset(m, 0, sizeof(float) * 16); }
-    Matrix(float matrix[4][4]) { memcpy(m, matrix, sizeof(float) * 16); }
+    float4x4() { memset(m, 0, sizeof(float) * 16); }
+    float4x4(float matrix[4][4]) { memcpy(m, matrix, sizeof(float) * 16); }
 
-    Matrix(float m00, float m01, float m02, float m03,
+    float4x4(float m00, float m01, float m02, float m03,
            float m10, float m11, float m12, float m13,
            float m20, float m21, float m22, float m23,
            float m30, float m31, float m32, float m33)
@@ -134,7 +134,7 @@ struct Matrix
         m[3][0] = m30; m[3][1] = m31; m[3][2] = m32; m[3][3] = m33;
     }    
     
-    Matrix(const Matrix& other)
+    float4x4(const float4x4& other)
     {
         m[0][0] = other.m[0][0]; m[0][1] = other.m[0][1]; m[0][2] = other.m[0][2]; m[0][3] = other.m[0][3];
         m[1][0] = other.m[1][0]; m[1][1] = other.m[1][1]; m[1][2] = other.m[1][2]; m[1][3] = other.m[1][3];
@@ -143,20 +143,20 @@ struct Matrix
     }
 
     // Methods
-    Matrix Inverse() const;
-    Matrix Transpose() const
+    float4x4 Inverse() const;
+    float4x4 Transpose() const
     {
-        return Matrix(m[0][0], m[1][0], m[2][0], m[3][0],
+        return float4x4(m[0][0], m[1][0], m[2][0], m[3][0],
                       m[0][1], m[1][1], m[2][1], m[3][1],
                       m[0][2], m[1][2], m[2][2], m[3][2],
                       m[0][3], m[1][3], m[2][3], m[3][3]);
     }
 
     // Operators
-    Matrix operator*(const Matrix& other);
-    Matrix& operator*= (const Matrix& other);
+    float4x4 operator*(const float4x4& other);
+    float4x4& operator*= (const float4x4& other);
     float3  operator* (const float3& vec);
-    Matrix& operator= (const Matrix& other)
+    float4x4& operator= (const float4x4& other)
     {
         m[0][0] = other.m[0][0]; m[0][1] = other.m[0][1]; m[0][2] = other.m[0][2]; m[0][3] = other.m[0][3];
         m[1][0] = other.m[1][0]; m[1][1] = other.m[1][1]; m[1][2] = other.m[1][2]; m[1][3] = other.m[1][3];

@@ -5,7 +5,7 @@
 #include "gpu_swapchain.hpp"
 #include "gpu_command_buffer.hpp"
 #include "gpu_sync.hpp"
-
+#include "entities/camera.hpp"
 #include <memory>
 
 
@@ -18,7 +18,7 @@ class ForwardRenderer : public Renderer
 public:
     ForwardRenderer(gpu::Device& device, //ResourceManager& resource_manager,
         void* window_handle, std::uint32_t width, std::uint32_t height);
-    void RenderFrame() override;
+    void RenderView() override;
 
 private:
     gpu::Device& device_;
