@@ -1,6 +1,10 @@
 #ifndef SHADER_COMMON_H
 #define SHADER_COMMON_H
 
+#ifdef __cplusplus
+#include "core/mathlib.hpp"
+#endif
+
 struct CameraView
 {
     float4x4 view_projection;

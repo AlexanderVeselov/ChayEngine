@@ -1,5 +1,7 @@
 #pragma once
 
+namespace engine
+{
 class ObjLoader
 {
 public:
@@ -7,3 +9,5 @@ public:
 private:
 
 };
+
+} // namespace engine

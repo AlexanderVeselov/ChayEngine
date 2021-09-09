@@ -1,14 +1,14 @@
 #pragma once
 
 #include "core/mathlib.hpp"
+#include "core/entity.hpp"
 
 namespace engine
 {
-class Camera
+class Camera : public Entity
 {
 public:
     void SetRenderTarget(/*...*/);
-    void SetTransform(float4x4 transform);
 private:
 
 };

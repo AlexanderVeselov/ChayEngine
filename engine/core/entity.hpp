@@ -1,23 +1,17 @@
-#ifndef ENTITY_HPP_
-#define ENTITY_HPP_
+#pragma once
 
+#include "mathlib.hpp"
 #include <string>
 
-class EntityManager;
-class ComponentManager;
-
-typedef std::uint64_t EntityId;
-
+namespace engine
+{
 class Entity
 {
 public:
-    Entity(EntityManager & entity_manager, ComponentManager & component_manager, EntityId entity_id);
-    void Ping();
+    void SetTransform(float4x4 transform);
 
 protected:
-    EntityId entity_id_;
-    EntityManager & entity_manager_;
-    ComponentManager & component_manager_;
+    float4x4 transform;
 };
 
-#endif // ENTITY_HPP_
+} // namespace engine

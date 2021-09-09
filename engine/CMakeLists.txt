@@ -4,6 +4,8 @@ set(CORE_SOURCES
     core/application.hpp
     core/engine.cpp
     core/engine.hpp
+    core/entity.cpp
+    core/entity.hpp
 #    core/scene.cpp
 #    core/scene.hpp
     core/renderer.hpp
