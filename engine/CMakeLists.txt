@@ -40,6 +40,7 @@ set(SHADERS_SOURCES
     shaders/common.h
     shaders/shader.frag
     shaders/shader.vert
+    shaders/shader.comp
 )
 
 source_group("shaders" FILES ${SHADERS_SOURCES})

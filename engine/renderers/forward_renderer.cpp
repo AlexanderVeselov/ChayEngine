@@ -14,6 +14,8 @@ ForwardRenderer::ForwardRenderer(gpu::Device& device,// ResourceManager& resourc
 
     gpu::Queue& graphics_queue = device_.GetQueue(gpu::QueueType::kGraphics);
 
+    compute_pipeline_ = device_.CreateComputePipeline("../../engine/shaders/shader.comp");
+
     auto& swapchain_images = swapchain_->GetImages();
     for (auto i = 0; i < swapchain_images.size(); ++i)
     {
@@ -22,11 +24,13 @@ ForwardRenderer::ForwardRenderer(gpu::Device& device,// ResourceManager& resourc
         cmd_buffer->TransitionBarrier(image, gpu::ImageLayout::kPresent, gpu::ImageLayout::kRenderTarget);
         cmd_buffer->ClearImage(image, 0.5f, 0.5f, 1.0f, 1.0f);
         cmd_buffer->TransitionBarrier(image, gpu::ImageLayout::kRenderTarget, gpu::ImageLayout::kPresent);
+        cmd_buffer->Dispatch(compute_pipeline_, 1, 1, 1);
         cmd_buffer->End();
         command_buffers_.push_back(std::move(cmd_buffer));
 
         fences_.push_back(device_.CreateFence());
     }
+
 }
 
 void ForwardRenderer::RenderView()

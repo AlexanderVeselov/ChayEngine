@@ -5,6 +5,7 @@
 #include "gpu_swapchain.hpp"
 #include "gpu_command_buffer.hpp"
 #include "gpu_sync.hpp"
+#include "gpu_pipeline.hpp"
 #include "entities/camera.hpp"
 #include <memory>
 
@@ -27,6 +28,7 @@ private:
     std::vector<gpu::CommandBufferPtr> command_buffers_;
     std::vector<gpu::FencePtr> fences_;
     std::uint32_t frame_index_ = 0;
+    gpu::ComputePipelinePtr compute_pipeline_;
 
 };
 
